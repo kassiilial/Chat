@@ -2,31 +2,31 @@
     -fx-font-size: 14;
     -fx-text-fill: beige;
     -fx-font-family: Arial;
-   // -fx-background-color: navy;
+
 }
 
 .menu-bar{
--fx-background-color: mediumblue;
+//-fx-background-color: mediumblue;
 }
 
 .menu{
--fx-text-fill: beige;
+//-fx-text-fill: beige;
 }
 
 .text-area{
--fx-control-inner-background: navy;
+//-fx-control-inner-background: mediumblue;
 }
 
 .text-field{
--fx-control-inner-background: mediumblue;
+//-fx-control-inner-background: mediumblue;
 }
 
 .button{
--fx-background-color: navy;
+-fx-background-color: mediumblue;
 -fx-text-fill: beige;
 
 }
 
 .button:hover{
-    -fx-font-weight: bolder;
+   // -fx-font-weight: bolder;
 }

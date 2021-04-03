@@ -11,10 +11,12 @@ public class Server {
     private static Socket socket;
     private static final int PORT = 8189;
     private List<ClientHandler> clients;
+    private AutService autService;
 
     public Server() {
 
         clients = new CopyOnWriteArrayList<>();
+        autService = new SimpleAuthService();
 
         try{
             server = new ServerSocket(PORT);
@@ -23,7 +25,7 @@ public class Server {
             while (true){
             socket = server.accept();
             System.out.println("Client connects" + socket.getRemoteSocketAddress());
-            clients.add(new ClientHandler(this, socket));
+            new ClientHandler(this, socket);
             }
 
         } catch (IOException e) {
@@ -42,10 +44,25 @@ public class Server {
         }
     }
     
-    public void broadCastMessage(String msg){
+    public void broadCastMessage(ClientHandler sender,String msg){
+        String message = String.format("%s: %s", sender.getNickName(), msg);
         for (ClientHandler c:
              clients) {
-            c.sendMessage(msg);
+            c.sendMessage(message);
         }
+    }
+
+
+
+    public void subscribe(ClientHandler clientHandler){
+        clients.add(clientHandler);
+    }
+
+    public void unsubscribe(ClientHandler clientHandler){
+        clients.remove(clientHandler);
+    }
+
+    public AutService getAutService() {
+        return autService;
     }
 }
