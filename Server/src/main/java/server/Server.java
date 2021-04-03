@@ -52,7 +52,16 @@ public class Server {
         }
     }
 
+    public void privateMessage(ClientHandler sender, String msg){
 
+        String message = String.format("%s: %s", sender.getNickName(), msg.split("\\s", 3)[2]);
+        sender.sendMessage(message);
+        for (ClientHandler c:
+                clients) {
+            if (c.getNickName().equals(msg.split("\\s")[1])) {
+            c.sendMessage(message);}
+        }
+    }
 
     public void subscribe(ClientHandler clientHandler){
         clients.add(clientHandler);
