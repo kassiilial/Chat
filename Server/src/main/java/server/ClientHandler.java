@@ -59,7 +59,11 @@ public class ClientHandler {
                             out.writeUTF("/end");
                             break;
                         }
-                        server.broadCastMessage(this,str);
+                        if (str.startsWith("/w")) {
+                            server.privateMessage(this, str);
+
+                        } else {
+                        server.broadCastMessage(this,str);}
                     }
 
                 }catch (IOException e) {
