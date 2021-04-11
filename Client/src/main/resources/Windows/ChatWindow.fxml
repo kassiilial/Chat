@@ -12,9 +12,10 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.PasswordField?>
-<VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="cleint.Controller">
+<?import javafx.scene.control.ListView?>
+<VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="client.Controller">
     <stylesheets>
-        <URL value="@/Style.css"/>
+        <URL value="@/css/Style.css"/>
     </stylesheets>
     <MenuBar>
         <Menu text="Room">
@@ -36,10 +37,19 @@
         <TextField fx:id="loginField" HBox.hgrow="ALWAYS" promptText="login" />
         <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" promptText="password" />
         <Button onAction="#tryToAuth" text="Log in" minWidth="100"/>
+        <Button onAction="#tryToReg" text="Sign in" minWidth="100"/>
     </HBox>
 
-    <TextArea fx:id="chatArea" editable="false" VBox.vgrow="ALWAYS" />
-    <HBox>
+
+    <HBox VBox.vgrow="ALWAYS">
+        <TextArea fx:id="chatArea" editable="false" HBox.hgrow="ALWAYS" />
+        <ListView fx:id="clientList" minWidth="150" visible="false" managed="false"
+        onMouseReleased="#clickClients"/>
+    </HBox>
+
+
+
+    <HBox fx:id="listAndFilesPanel">
         <Button onAction="#functionNotFound" text="Address list">
          <HBox.margin>
             <Insets left="20.0" right="50.0" />

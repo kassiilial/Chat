@@ -9,4 +9,8 @@ public interface AutService {
      * Если нет, null
      * */
     String getNicknameByLoginAndPassword (String login, String password);
+
+    /**
+     * Попытка регистрации новой учетной записи*/
+    boolean registration (String login, String password, String nickname);
 }

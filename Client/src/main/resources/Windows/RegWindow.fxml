@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ListView?>
+<VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/8.0.171"
+      fx:controller="client.RegConntroller">
+    <stylesheets>
+        <URL value="@/css/Style.css"/>
+    </stylesheets>
+
+
+    <TextField fx:id="loginField" promptText="login" />
+    <PasswordField fx:id="passwordField" promptText="password" />
+    <TextField fx:id="nickNameField" promptText="nickname" />
+
+    <TextArea fx:id="textArea" VBox.vgrow="ALWAYS"/>
+
+    <Button  text="Sign in" minWidth="100" onAction="#tryToGer"/>
+
+
+</VBox>

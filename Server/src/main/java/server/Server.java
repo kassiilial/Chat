@@ -54,24 +54,53 @@ public class Server {
 
     public void privateMessage(ClientHandler sender, String msg){
 
-        String message = String.format("%s: %s", sender.getNickName(), msg.split("\\s", 3)[2]);
+        String message = String.format("%s: %s", sender.getNickName(), msg.split("\\s+", 3)[2]);
         sender.sendMessage(message);
         for (ClientHandler c:
                 clients) {
-            if (c.getNickName().equals(msg.split("\\s")[1])) {
-            c.sendMessage(message);}
+            if (c.getNickName().equals(msg.split("\\s+",3)[1])) {
+                if (sender.equals(c)) {return;}
+                c.sendMessage(message);
+                return;
+            }
         }
+        sender.sendMessage("User not found");
     }
 
     public void subscribe(ClientHandler clientHandler){
         clients.add(clientHandler);
+        broadcastClientList();
     }
 
     public void unsubscribe(ClientHandler clientHandler){
         clients.remove(clientHandler);
+        broadcastClientList();
     }
 
     public AutService getAutService() {
         return autService;
+    }
+
+    public boolean isLoginAuth(String login) {
+        for (ClientHandler c:
+             clients) {
+            if (c.getLogin().equals(login)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void broadcastClientList() {
+        StringBuilder sb = new StringBuilder("/clientlist");
+        for (ClientHandler c:
+                clients) {
+            sb.append(" ").append(c.getNickName());
+            }
+        String mg = sb.toString();
+        for (ClientHandler c:
+                clients) {
+            c.sendMessage(mg);
+        }
     }
 }
