@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.sql.SQLOutput;
 
 public class ClientHandler {
@@ -26,7 +27,7 @@ public class ClientHandler {
 
             new Thread(()->{
                 try {
-
+                    socket.setSoTimeout(120000);
                     //цикл аутентификации
                     while (true) {
                         String str = in.readUTF();
@@ -37,7 +38,9 @@ public class ClientHandler {
                         // Аутентификация
                         if (str.startsWith("/auth")) {
                             String[] token = str.split("\\s+", 3);
-                            if (token.length<3) {continue;}
+                            if (token.length < 3) {
+                                continue;
+                            }
                             String newNick = server
                                     .getAutService()
                                     .getNicknameByLoginAndPassword(token[1], token[2]);
@@ -61,17 +64,20 @@ public class ClientHandler {
                         //Регистрация
                         if (str.startsWith("/reg")) {
 
-                            String[] token = str.split("\\s+",4);
-                            if (token.length<4){
+                            String[] token = str.split("\\s+", 4);
+                            if (token.length < 4) {
                                 continue;
                             }
                             boolean b = server.getAutService().registration(token[1], token[2], token[3]);
-                            if (b) {sendMessage("/reg_ok");}
-                            else {sendMessage("/reg_no");}
+                            if (b) {
+                                sendMessage("/reg_ok");
+                            } else {
+                                sendMessage("/reg_no");
+                            }
                         }
 
                     }
-
+                    socket.setSoTimeout(0);
                     //цикл работы
                     while (true) {
                         String str = in.readUTF();
@@ -85,6 +91,12 @@ public class ClientHandler {
                         } else {
                             server.broadCastMessage(this, str);
                         }
+                    }
+                } catch (SocketTimeoutException e){
+                    try {
+                        out.writeUTF("/end");
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
                     }
                 } catch (RuntimeException e) {
                     System.out.println(e.getMessage());
