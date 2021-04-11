@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba4ae747-e757-4f66-a2ec-0d94a95d5370" name="Default Changelist" comment="Homework">
-      <change afterPath="$PROJECT_DIR$/.idea/Chat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/client/RegConntroller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/Windows/ChatWindow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/Windows/RegWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/cleint/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/client/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/cleint/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/ChatWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/css/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/server/AutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/server/AutService.java" afterDir="false" />
+    <list default="true" id="ba4ae747-e757-4f66-a2ec-0d94a95d5370" name="Default Changelist" comment="Chat with registration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/server/SimpleAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/server/SimpleAuthService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617471131154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Chat with registration">
+      <created>1618168892073</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1618168892073</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +221,7 @@
     <MESSAGE value="Basic Chat" />
     <MESSAGE value="Chat_part1" />
     <MESSAGE value="Homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Homework" />
+    <MESSAGE value="Chat with registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chat with registration" />
   </component>
 </project>
